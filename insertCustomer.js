@@ -5,10 +5,11 @@ MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     var dbo = db.db("mydb");
 
-    var myobj = { name: "ConnectMe Ltd.", address: "17 Ave SE" }; //name, address = column name
+    var myobj = {_id: 456, name: "Viewtech Ltd.", address: "16 Ave SE" }; //name, address = column name
     dbo.collection("customers").insertOne(myobj, function (err, res) { // insertOne = one document (row) insert
         if (err) throw err;
-        console.log("many document inserted");
+        console.log("1 document inserted");
+        console.log(res);
         db.close();
     })
 });
